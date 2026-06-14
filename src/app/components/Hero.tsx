@@ -12,7 +12,8 @@ import { BlueprintDecoLines } from "./Blueprintdecolines";
 import capterraUrl from "@/assets/images/hero/ratings/capterra.png";
 import appStoreUrl from "@/assets/images/hero/ratings/app-store.svg";
 import googlePlayUrl from "@/assets/images/hero/ratings/google-play.svg";
-import provetUiUrl from "@/assets/images/hero/provet-ui-screenshot.png";
+import VetAIUiUrl from "@/assets/images/hero/provet-ui-screenshot.png";
+import whiteSplashUrl from "../../imports/MobileHero/white-splash.svg";
 import {
   HeroAnimation,
   type HeroAnimalId,
@@ -99,7 +100,7 @@ function FadeInOut({
 
 function HeroHeadline() {
   return (
-    <div id="hero-heading">
+    <div id="hero-heading" className="relative w-full">
       {/* Mobile headline */}
       <h1
         className="text-center text-[clamp(2.5rem,12vw,3rem)] font-semibold leading-tight text-[#2d3341] md:max-w-[75%] md:mx-auto lg:hidden"
@@ -122,10 +123,27 @@ function HeroHeadline() {
   );
 }
 
+function HeroCopy() {
+  return (
+    <div className="relative w-full">
+      <img
+        src={whiteSplashUrl}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-[35%] z-0 w-full max-w-md origin-center -translate-x-1/2 -translate-y-1/2 scale-[3] object-contain opacity-75 md:top-1/2 md:max-w-lg md:scale-[3.75] lg:top-[25%] lg:max-w-xl lg:scale-[2.25]"
+      />
+      <div className="relative z-10 flex flex-col items-center gap-4 lg:items-start">
+        <HeroHeadline />
+        <HeroDescription />
+      </div>
+    </div>
+  );
+}
+
 function HeroDescription() {
   return (
     <p
-      className="max-w-[324px] text-center text-base font-medium leading-6 text-[#374151] lg:max-w-md lg:text-left lg:text-xl"
+      className="mx-auto max-w-[324px] text-center text-base font-medium leading-6 text-[#374151] md:max-w-md lg:mx-0 lg:max-w-md lg:text-left lg:text-xl"
       style={{ fontFamily: "Raleway, sans-serif" }}
     >
       Unlock a more efficient way to manage your practice with{" "}
@@ -137,7 +155,7 @@ function HeroDescription() {
 
 function HeroActions() {
   return (
-    <div className="flex w-full max-w-[260px] flex-col gap-2 lg:max-w-[340px]">
+    <div className="relative z-10 flex w-full max-w-[260px] flex-col gap-2 lg:max-w-[340px]">
       <div className="relative overflow-visible rounded-[32px] border-2 border-[#4163ca] p-1.5">
         <BlueprintDecoLines />
         <a
@@ -151,7 +169,7 @@ function HeroActions() {
 
       {/* Mobile: Contact | Desktop: Explore Features */}
       <a
-        href="#contact"
+        href="https://devtoti.com/contact"
         className="relative flex h-[52px] w-full items-center justify-center overflow-visible rounded-[32px] border-[1.5px] border-[#d4e0f5] bg-[#f9fafb] px-4 py-2 text-xl font-bold leading-6 text-[#374151] shadow-[0_10px_16.4px_rgba(126,58,242,0.1),0_4px_6px_rgba(126,58,242,0.1),0_1px_3px_rgba(0,0,0,0.1),0_1px_2px_rgba(0,0,0,0.1)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_20px_rgba(126,58,242,0.15),0_6px_8px_rgba(126,58,242,0.1)] active:translate-y-0 active:scale-[0.97] active:shadow-[0_4px_6px_rgba(126,58,242,0.1)] lg:hidden"
         style={{ fontFamily: "Raleway, sans-serif" }}
       >
@@ -172,7 +190,7 @@ function HeroActions() {
 
 function RatingsBar() {
   return (
-    <div className="h-16 flex w-full items-center justify-center gap-6 md:gap-12 lg:justify-start lg:gap-8 md:w-[420px]">
+    <div className="relative z-10 h-16 flex w-full items-center justify-center gap-6 md:gap-12 lg:justify-start lg:gap-8 md:w-[420px]">
       <img
         src={capterraUrl}
         alt="Capterra 5 stars"
@@ -272,8 +290,7 @@ export const Hero = () => {
       <div className="relative mx-auto grid w-full max-w-6xl grid-rows-[auto_1fr] px-4 pt-24 md:pt-28 pb-4 lg:min-h-svh lg:grid-rows-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-center lg:gap-x-10 lg:px-8 lg:pt-6 lg:pb-6">
         {/* Mobile row 1 / Desktop col 1: headlines */}
         <div className="flex flex-col items-center justify-center gap-4 pt-4 pb-0 lg:items-start lg:gap-6 lg:py-0">
-          <HeroHeadline />
-          <HeroDescription />
+          <HeroCopy />
           <HeroActions />
           <RatingsBar />
         </div>
@@ -285,8 +302,8 @@ export const Hero = () => {
             <div className="z-0 translate-y-1/4 self-start [grid-area:stack] opacity-30 lg:self-start">
               <MacWindows className="w-full min-h-[14rem] lg:min-h-[20rem]">
                 <img
-                  src={provetUiUrl}
-                  alt="Provet Cloud interface"
+                  src={VetAIUiUrl}
+                  alt="VetAI Cloud interface"
                   className="size-full rounded object-cover object-left-top"
                 />
               </MacWindows>
@@ -294,7 +311,7 @@ export const Hero = () => {
 
             {/* Hero animation (in front) */}
             <HeroAnimation
-              aria-label="Provet hero illustration"
+              aria-label="VetAI hero illustration"
               className="z-10 h-auto w-full max-w-[85%] self-end justify-self-center [grid-area:stack] lg:max-w-lg"
               onActiveAnimalChange={setActiveAnimal}
             />

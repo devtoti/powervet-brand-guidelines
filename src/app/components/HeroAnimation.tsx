@@ -216,7 +216,7 @@ function prepareAnimal(
   gsap.set(paths, { drawSVG: "0%" });
 }
 
-/** Layer and group names from provet-hero-animation.svg */
+/** Layer and group names from VetAI-hero-animation.svg */
 export const HERO_ANIMATION_LAYERS = [
   "2231",
   "cat-1",
@@ -294,10 +294,10 @@ export function HeroAnimation(props: HeroAnimationProps) {
 
       if (prefersReducedMotion()) {
         const first = segments[0];
-        gsap.set(
-          ANIMALS.map((id) => getAnimalGroup(svg, id)).filter(Boolean),
-          { display: "none", autoAlpha: 0 },
-        );
+        gsap.set(ANIMALS.map((id) => getAnimalGroup(svg, id)).filter(Boolean), {
+          display: "none",
+          autoAlpha: 0,
+        });
         gsap.set(first.group, { display: "block", autoAlpha: 1 });
         gsap.set(first.paths, { drawSVG: "100%" });
         onActiveAnimalChangeRef.current?.(first.animalId);

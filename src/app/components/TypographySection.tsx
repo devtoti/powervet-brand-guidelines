@@ -325,7 +325,7 @@ function TypographySampleCard({
           fontSize: "clamp(48px, 12vw, 96px)",
           lineHeight: "normal",
           color: "white",
-          WebkitTextStroke: "2.5px var(--gray-brand-300)",
+          WebkitTextStroke: "2.5px var(--gray-brand-500)",
           paintOrder: "stroke fill",
           flexShrink: 0,
         }}

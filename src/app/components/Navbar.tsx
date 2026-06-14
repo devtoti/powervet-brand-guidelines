@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import svgPaths from "../../imports/IconContainer/svg-9kqwkiafdn";
-import { BlueprintDecoLines } from "./Blueprintdecolines.tsx";
+import {
+  BlueprintDecoLines,
+  BLUEPRINT_DECO_LINES_NAVBAR_COLOR,
+} from "./Blueprintdecolines.tsx";
 
 const NAV_ITEMS = [
   { id: "logos", label: "Logos" },
@@ -31,6 +34,37 @@ function Logo({ onClick }: { onClick: () => void }) {
       >
         <path d={svgPaths.p1da615f0} fill="#633DAB" />
       </svg>
+    </button>
+  );
+}
+
+const GET_QUOTE_BUTTON_STYLE = {
+  background: "var(--brand-dark)",
+  color: "white",
+  fontFamily: "var(--font-raleway)",
+  fontWeight: 700,
+  // border: "2px solid var(--brand-light)",
+  boxShadow: "0 2px 8px rgba(53,89,199,0.25)",
+} as const;
+
+function goToQuote() {
+  window.location.href = "https://devtoti.com/contact";
+}
+
+function GetQuoteButton({
+  className,
+  fontSize,
+}: {
+  className: string;
+  fontSize: string;
+}) {
+  return (
+    <button
+      className={className}
+      style={{ ...GET_QUOTE_BUTTON_STYLE, fontSize }}
+      onClick={goToQuote}
+    >
+      Get a Quote
     </button>
   );
 }
@@ -92,10 +126,9 @@ export function Navbar() {
           transition: "transform 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
       >
-        <BlueprintDecoLines dashed />
         {/* md:transform-none keeps desktop always visible */}
         <div
-          className="pointer-events-auto relative rounded-[38px] w-full lg:mx-0 lg:w-full md:![transform:none] max-w-[880px] mx-2"
+          className="pointer-events-auto relative overflow-visible rounded-[38px] w-full lg:mx-0 lg:w-full md:![transform:none] max-w-[880px] mx-2"
           style={{
             backdropFilter: "blur(5.1px)",
             WebkitBackdropFilter: "blur(5.1px)",
@@ -103,8 +136,14 @@ export function Navbar() {
             boxShadow: "0px 4px 4px 0px rgba(0,0,0,0.12)",
           }}
         >
-          <div className="flex items-center justify-between px-3 py-1 gap-1 overflow-hidden">
+          <BlueprintDecoLines color={"#9c9c9c"} />
+          <div className="relative z-10 flex items-center justify-between px-3 py-1 gap-1 overflow-hidden">
             <Logo onClick={() => scrollTo("logos")} />
+
+            <GetQuoteButton
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 shrink-0 rounded-full px-3 py-1.5 transition-all duration-150 active:scale-[0.97] md:hidden"
+              fontSize="0.8125rem"
+            />
 
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-0 flex-1 justify-center min-w-0">
@@ -112,7 +151,7 @@ export function Navbar() {
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className="px-1.5 lg:px-2.5 py-1.5 whitespace-nowrap transition-all duration-150"
+                  className="cursor-pointer px-1.5 lg:px-2.5 py-1.5 whitespace-nowrap transition-all duration-150"
                   style={
                     active === item.id
                       ? {
@@ -137,20 +176,10 @@ export function Navbar() {
             </div>
 
             {/* Desktop CTA — hidden on tablet, visible on lg+ */}
-            <button
-              className="hidden lg:flex items-center shrink-0 px-4 py-2 rounded-full transition-all duration-150 hover:-translate-y-0.5"
-              style={{
-                background: "var(--brand-dark)",
-                color: "white",
-                fontFamily: "var(--font-raleway)",
-                fontWeight: 700,
-                fontSize: "0.875rem",
-                border: "2px solid var(--brand-light)",
-                boxShadow: "0 2px 8px rgba(53,89,199,0.25)",
-              }}
-            >
-              Get a Quote
-            </button>
+            <GetQuoteButton
+              className="hidden lg:flex items-center shrink-0 px-4 py-1 rounded-full transition-all duration-150 hover:-translate-y-0.5"
+              fontSize="0.875rem"
+            />
 
             {/* Mobile hamburger */}
             <button
@@ -182,9 +211,8 @@ export function Navbar() {
       {/* Mobile dropdown */}
       {menuOpen && (
         <div className="fixed top-[80px] left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
-          <BlueprintDecoLines dashed />
           <div
-            className="pointer-events-auto w-full rounded-2xl overflow-hidden"
+            className="pointer-events-auto relative overflow-visible w-full rounded-2xl"
             style={{
               background: "rgba(255,255,255,0.85)",
               backdropFilter: "blur(5.1px)",
@@ -193,7 +221,11 @@ export function Navbar() {
               border: "1px solid rgba(255,255,255,0.3)",
             }}
           >
-            <div className="floating-menu w-full px-4 py-3 flex flex-col gap-0.5">
+            <BlueprintDecoLines
+              dashed
+              color={BLUEPRINT_DECO_LINES_NAVBAR_COLOR}
+            />
+            <div className="relative z-10 floating-menu w-full px-4 py-3 flex flex-col gap-0.5 overflow-hidden rounded-2xl">
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
@@ -221,20 +253,10 @@ export function Navbar() {
                 </button>
               ))}
               <div className="pt-2 pb-1 flex justify-center">
-                <button
+                <GetQuoteButton
                   className="px-6 py-2.5 rounded-full"
-                  style={{
-                    background: "var(--brand-dark)",
-                    color: "white",
-                    fontFamily: "var(--font-raleway)",
-                    fontWeight: 700,
-                    fontSize: "0.9375rem",
-                    border: "2px solid var(--brand-light)",
-                    boxShadow: "0 2px 8px rgba(53,89,199,0.25)",
-                  }}
-                >
-                  Get a Quote
-                </button>
+                  fontSize="0.9375rem"
+                />
               </div>
             </div>
           </div>
