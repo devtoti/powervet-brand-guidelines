@@ -4,8 +4,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { prefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
-/** Layer and group names from provet-hero-export.svg */
-export const PROVET_HERO2_LAYERS = [
+/** Layer and group names from VetAI-hero-export.svg */
+export const VetAI_HERO2_LAYERS = [
   "2231",
   "_2231",
   "_22311",
@@ -30,7 +30,7 @@ export const PROVET_HERO2_LAYERS = [
   "w1",
 ] as const;
 
-export type ProvetHero2Layer = (typeof PROVET_HERO2_LAYERS)[number];
+export type VetAIHero2Layer = (typeof VetAI_HERO2_LAYERS)[number];
 
 const LEFT_ARM_SWING_DEGREES = 3;
 const LEFT_ARM_CYCLE_SECONDS = 5;
@@ -72,7 +72,7 @@ function clearPathGroupFlashProps(group: SVGGElement) {
   });
 }
 
-export function ProvetHero(props: SVGProps<SVGSVGElement>) {
+export function VetAIHero(props: SVGProps<SVGSVGElement>) {
   const { ref: svgRefProp, ...svgProps } = props;
   const svgRef = useRef<SVGSVGElement>(null);
   const leftArmLayerRef = useRef<SVGGElement>(null);
@@ -120,9 +120,7 @@ export function ProvetHero(props: SVGProps<SVGSVGElement>) {
       const nodes = nodesRef.current;
       if (!prisms && !nodes) return;
 
-      const animations = [
-        ...(prisms ? startPathGroupFlashes(prisms) : []),
-      ];
+      const animations = [...(prisms ? startPathGroupFlashes(prisms) : [])];
 
       return () => {
         animations.forEach((animation) => animation.kill());

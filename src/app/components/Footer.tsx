@@ -33,7 +33,7 @@ export function Footer() {
                 color: "var(--gray-brand-500)",
               }}
             >
-              Design System 2025
+              Design System 2026
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ export function Footer() {
             color: "var(--gray-brand-600)",
           }}
         >
-          © 2025 VetAI. All rights reserved.
+          © 2026 VetAI. All rights reserved.
         </p>
       </div>
     </footer>

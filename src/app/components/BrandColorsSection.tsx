@@ -8,9 +8,18 @@ interface ColorChipProps {
   hex: string;
   rgb: string;
   height?: string;
+  dimmed?: boolean;
+  onHoverStart?: () => void;
 }
 
-function ColorChip({ name, hex, rgb, height = "h-20" }: ColorChipProps) {
+function ColorChip({
+  name,
+  hex,
+  rgb,
+  height = "h-20",
+  dimmed = false,
+  onHoverStart,
+}: ColorChipProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -35,19 +44,24 @@ function ColorChip({ name, hex, rgb, height = "h-20" }: ColorChipProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="relative flex flex-col rounded-xl overflow-visible border transition-transform hover:-translate-y-1 cursor-pointer group"
+      className="relative flex flex-col rounded-xl overflow-visible border transition-transform duration-200 hover:-translate-y-1 cursor-pointer group"
       style={{ borderColor: "var(--gray-brand-200)" }}
       onClick={handleCopy}
+      onMouseEnter={onHoverStart}
     >
-      <BlueprintDecoLines />
-      {/* Color swatch */}
       <div
-        className={`${height} flex items-end justify-end p-3 relative rounded-t-xl`}
-        style={{
-          background: hex,
-          boxShadow: "0 5px 7.5px -1.5px rgba(0,0,0,0.1)",
-        }}
+        className="flex flex-col transition-opacity duration-[5000ms]"
+        style={{ opacity: dimmed ? 0.5 : 1 }}
       >
+        <BlueprintDecoLines />
+        {/* Color swatch */}
+        <div
+          className={`${height} flex items-end justify-end p-3 relative rounded-t-xl`}
+          style={{
+            background: hex,
+            boxShadow: "0 5px 7.5px -1.5px rgba(0,0,0,0.1)",
+          }}
+        >
         <AnimatePresence>
           {copied ? (
             <motion.div
@@ -115,6 +129,7 @@ function ColorChip({ name, hex, rgb, height = "h-20" }: ColorChipProps) {
           {rgb}
         </span>
       </div>
+      </div>
     </motion.div>
   );
 }
@@ -131,6 +146,8 @@ const BRAND_COLORS = [
 ];
 
 export function BrandColorsSection() {
+  const [hoveredHex, setHoveredHex] = useState<string | null>(null);
+
   return (
     <section id="colors" className="py-24 px-6" style={{ background: "white" }}>
       <div className="max-w-5xl mx-auto">
@@ -139,9 +156,17 @@ export function BrandColorsSection() {
           subtitle="Our color system is built around trust, clarity, and innovation. Click any color to copy its hex code."
         />
 
-        <div className="relative grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 overflow-visible">
+        <div
+          className="relative grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 overflow-visible"
+          onMouseLeave={() => setHoveredHex(null)}
+        >
           {BRAND_COLORS.map((color) => (
-            <ColorChip key={color.hex} {...color} />
+            <ColorChip
+              key={color.hex}
+              {...color}
+              dimmed={hoveredHex !== null && hoveredHex !== color.hex}
+              onHoverStart={() => setHoveredHex(color.hex)}
+            />
           ))}
         </div>
 

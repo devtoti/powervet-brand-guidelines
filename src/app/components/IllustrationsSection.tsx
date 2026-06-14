@@ -13,9 +13,10 @@ import {
 } from "./ui/carousel";
 import imgIllustration from "../../imports/DesktopGuidelines/f409b829b58057dd392f557ef5668239577e0431.png";
 import imgCat from "../../imports/DesktopGuidelines/cat-illustration.png";
-import imgDog1 from "../../imports/DesktopGuidelines/dog-illustration-1.png";
+import imgDog1 from "../../imports/DesktopGuidelines/probet-dog-1.svg";
 import imgDog2 from "../../imports/DesktopGuidelines/dog-illustration-2.png";
 import imgRabbit from "../../imports/DesktopGuidelines/rabbit-illustration.png";
+import imgCroquettesPattern from "../../imports/DesktopGuidelines/2c74208e2178cecc96d68b62d62f0f562c2b769d.png";
 
 const ILLUSTRATIONS = [
   { src: imgCat, name: "Cat" },
@@ -261,16 +262,16 @@ function IllustrationCarousel() {
             stopOnMouseEnter: true,
           }),
         ]}
-        className="w-full max-w-lg mx-auto"
+        className="mx-auto w-full max-w-3xl"
       >
         <CarouselContent>
           {ILLUSTRATIONS.map((illus) => (
             <CarouselItem key={illus.name}>
-              <div className="flex flex-col items-center justify-center px-8 py-6">
+              <div className="flex flex-col items-center justify-center px-6 py-8 sm:px-8 sm:py-10">
                 <img
                   src={illus.src}
                   alt={`${illus.name} illustration`}
-                  className="h-96 w-auto object-contain mix-blend-multiply"
+                  className="h-[36rem] w-auto max-w-full object-contain mix-blend-multiply"
                 />
                 <span
                   className="mt-3 text-xs font-medium"
@@ -326,12 +327,21 @@ function IllustrationCarousel() {
 
 export function IllustrationsSection() {
   return (
-    <section
-      id="illustrations"
-      className="py-24 px-6"
-      style={{ background: "var(--gray-brand-50)" }}
-    >
-      <div className="max-w-5xl mx-auto">
+    <section id="illustrations" className="relative py-24 px-6">
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0" />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("${imgCroquettesPattern}")`,
+            backgroundSize: "30.25px 30.25px",
+            backgroundPosition: "top left",
+            opacity: 0.05,
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-5xl">
         <SectionHeading
           title="Illustrations"
           subtitle="A consistent illustration language built on clean linework, low-poly animal characters, and soft gradient fills that reinforce the VetAI brand voice."

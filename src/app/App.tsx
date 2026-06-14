@@ -30,12 +30,13 @@ export default function App() {
           <BrandColorsSection />
           <ColorPaletteSection />
           <ColorRatioSection />
-          <TypographySection />
           <CtaBannerSection />
+          <TypographySection />
           <PatternsSection />
           <LayoutSection />
           <MotionSection />
           <IllustrationsSection />
+          <CtaBannerSection />
         </main>
         <Footer />
         <BackToTop />

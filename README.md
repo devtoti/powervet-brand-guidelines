@@ -1,6 +1,6 @@
-# Provet Brand Guidelines
+# VetAI Brand Guidelines
 
-Interactive brand guidelines site for Provet / VetAI — colors, typography, patterns, motion, layout, and illustrations in a responsive single-page experience.
+Interactive brand guidelines site for VetAI / VetAI — colors, typography, patterns, motion, layout, and illustrations in a responsive single-page experience.
 
 ## Stack
 
@@ -20,13 +20,13 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Type-check and build for production |
-| `npm run preview` | Preview production build locally |
-| `npm run lint` | Run ESLint |
-| `npm run typecheck` | Run TypeScript without emitting |
+| Command             | Description                         |
+| ------------------- | ----------------------------------- |
+| `npm run dev`       | Start development server            |
+| `npm run build`     | Type-check and build for production |
+| `npm run preview`   | Preview production build locally    |
+| `npm run lint`      | Run ESLint                          |
+| `npm run typecheck` | Run TypeScript without emitting     |
 
 ## Project structure
 

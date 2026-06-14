@@ -1,8 +1,8 @@
 {
-  "name": "provet-brand",
+  "name": "VetAI-brand",
   "private": true,
   "version": "1.0.0",
-  "description": "Interactive brand guidelines site for Provet / VetAI",
+  "description": "Interactive brand guidelines site for VetAI / VetAI",
   "type": "module",
   "scripts": {
     "build": "tsc --noEmit && vite build",

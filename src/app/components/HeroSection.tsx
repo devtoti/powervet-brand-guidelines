@@ -49,7 +49,7 @@ export function HeroSection() {
           }}
         >
           <span className="w-2 h-2 rounded-full inline-block" style={{ background: "var(--brand-teal)" }} />
-          Brand Guidelines 2025
+          Brand Guidelines 2026
         </motion.div>
 
         {/* Heading */}
