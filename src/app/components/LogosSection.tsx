@@ -74,7 +74,7 @@ export function LogosSection() {
       <div className="max-w-5xl mx-auto">
         <SectionHeading
           title="Logos"
-          subtitle="The VetAI logo represents trust, care, and innovation in veterinary practice management. Use these approved logo variants across all branded touchpoints."
+          subtitle="The Powervet logo represents trust, care, and innovation in veterinary practice management. Use these approved logo variants across all branded touchpoints."
         />
 
         <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 overflow-visible">

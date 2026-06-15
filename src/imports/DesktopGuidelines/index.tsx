@@ -1547,7 +1547,7 @@ function HeroTextContainer() {
           </span>
           <span className="leading-[normal]">{` `}</span>
           <span className="[word-break:break-word] font-['Outfit:ExtraBold',sans-serif] font-extrabold leading-[normal] text-[#401298]">
-            VetAI
+            Powervet
           </span>
         </p>
       </div>
@@ -2527,7 +2527,7 @@ function ContainerMargin1() {
     <div className="relative shrink-0 w-[480px]" data-name="Container (margin)">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center pt-[64px] relative size-full">
         <p className="[word-break:break-word] font-['Inter:Regular',sans-serif] font-normal leading-[26px] not-italic relative shrink-0 text-[#4a5565] text-[16px] tracking-[-0.3125px] w-full">
-          The VetAI logo represents trust, care, and innovation in veterinary
+          The Powervet logo represents trust, care, and innovation in veterinary
           practice management. The clean, modern design reflects our commitment
           to simplifying complex workflows for veterinary professionals.
         </p>
@@ -16901,11 +16901,11 @@ function Group() {
   );
 }
 
-function VetAICat() {
+function PowervetCat() {
   return (
     <div
       className="col-2 justify-self-stretch overflow-clip relative row-2 self-stretch shrink-0"
-      data-name="VetAI-cat-1 1"
+      data-name="Powervet-cat-1 1"
     >
       <Group />
     </div>
@@ -28354,11 +28354,11 @@ function Group543() {
   );
 }
 
-function VetAIDog() {
+function PowervetDog() {
   return (
     <div
       className="col-3 justify-self-stretch opacity-50 overflow-clip relative row-2 self-stretch shrink-0"
-      data-name="VetAI-dog-1 1"
+      data-name="Powervet-dog-1 1"
     >
       <Group543 />
     </div>
@@ -33516,11 +33516,11 @@ function Outlines9() {
   );
 }
 
-function VetAIRabbit() {
+function PowervetRabbit() {
   return (
     <div
       className="absolute contents inset-[0_0.1%_0.08%_0]"
-      data-name="VetAI-rabbit"
+      data-name="Powervet-rabbit"
     >
       <div className="absolute inset-[0_0.1%_0.08%_0]" data-name="Vector">
         <svg
@@ -33546,16 +33546,16 @@ function VetAIRabbit() {
 function Group706() {
   return (
     <div className="absolute contents inset-[0_0.1%_0.08%_0]" data-name="Group">
-      <VetAIRabbit />
+      <PowervetRabbit />
     </div>
   );
 }
 
-function VetAIRabbit1() {
+function PowervetRabbit1() {
   return (
     <div
       className="col-1 justify-self-stretch opacity-50 overflow-clip relative row-2 self-stretch shrink-0"
-      data-name="VetAI-rabbit-1 1"
+      data-name="Powervet-rabbit-1 1"
     >
       <Group706 />
     </div>
@@ -33566,11 +33566,11 @@ function Frame() {
   return (
     <div className="h-[1278.45px] relative shrink-0 w-[1024px]">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid grid grid-cols-[repeat(3,minmax(0,1fr))] grid-rows-[repeat(3,minmax(0,1fr))] relative size-full">
-        <VetAICat />
+        <PowervetCat />
         <ProbetDog3 />
         <ProbetDog4 />
-        <VetAIDog />
-        <VetAIRabbit1 />
+        <PowervetDog />
+        <PowervetRabbit1 />
       </div>
     </div>
   );

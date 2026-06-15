@@ -24,7 +24,7 @@ export function Footer() {
                 fontSize: "0.9375rem",
               }}
             >
-              VetAI Brand Guidelines
+              Powervet Brand Guidelines
             </p>
             <p
               style={{
@@ -65,7 +65,7 @@ export function Footer() {
             color: "var(--gray-brand-600)",
           }}
         >
-          © 2026 VetAI. All rights reserved.
+          © 2026 Powervet. All rights reserved.
         </p>
       </div>
     </footer>

@@ -65,7 +65,7 @@ export function HeroSection() {
           }}
           className="text-5xl sm:text-6xl md:text-7xl tracking-tight"
         >
-          The VetAI
+          The Powervet
           <br />
           <span style={{ color: "var(--brand-dark)" }}>Design System</span>
         </motion.h1>
@@ -83,7 +83,7 @@ export function HeroSection() {
           }}
         >
           A comprehensive guide to our brand identity — colors, typography, patterns,
-          and motion principles that define the VetAI experience.
+          and motion principles that define the Powervet experience.
         </motion.p>
 
         {/* CTA Buttons */}

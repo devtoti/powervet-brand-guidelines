@@ -344,7 +344,7 @@ export function IllustrationsSection() {
       <div className="relative z-10 mx-auto max-w-5xl">
         <SectionHeading
           title="Illustrations"
-          subtitle="A consistent illustration language built on clean linework, low-poly animal characters, and soft gradient fills that reinforce the VetAI brand voice."
+          subtitle="A consistent illustration language built on clean linework, low-poly animal characters, and soft gradient fills that reinforce the Powervet brand voice."
         />
 
         {/* Character illustrations carousel */}
@@ -368,7 +368,7 @@ export function IllustrationsSection() {
           >
             <img
               src={imgIllustration}
-              alt="VetAI hero illustration"
+              alt="Powervet hero illustration"
               className="max-w-full rounded-lg"
               style={{ maxHeight: "400px", objectFit: "contain" }}
             />

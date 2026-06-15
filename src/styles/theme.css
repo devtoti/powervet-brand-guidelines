@@ -4,7 +4,7 @@
   --font-size: 16px;
   --background: #ffffff;
 
-  /* VetAI Brand Tokens */
+  /* Powervet Brand Tokens */
   --brand-purple: #401298;
   --brand-accent: #633DAB;
   --brand: #4163CA;
@@ -140,7 +140,7 @@
 }
 
 @theme inline {
-  /* VetAI Brand Colors */
+  /* Powervet Brand Colors */
   --color-brand-purple: var(--brand-purple);
   --color-brand-accent: var(--brand-accent);
   --color-brand: var(--brand);
