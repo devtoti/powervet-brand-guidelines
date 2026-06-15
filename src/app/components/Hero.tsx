@@ -12,7 +12,7 @@ import { BlueprintDecoLines } from "./Blueprintdecolines";
 import capterraUrl from "@/assets/images/hero/ratings/capterra.png";
 import appStoreUrl from "@/assets/images/hero/ratings/app-store.svg";
 import googlePlayUrl from "@/assets/images/hero/ratings/google-play.svg";
-import VetAIUiUrl from "@/assets/images/hero/provet-ui-screenshot.png";
+import PowervetUiUrl from "@/assets/images/hero/provet-ui-screenshot.png";
 import whiteSplashUrl from "../../imports/MobileHero/white-splash.svg";
 import {
   HeroAnimation,
@@ -107,7 +107,7 @@ function HeroHeadline() {
         style={{ fontFamily: "Outfit, sans-serif" }}
       >
         Level-up your vet clinic, save time with{" "}
-        <span className="font-extrabold text-[#401298]">VetAI</span>
+        <span className="font-extrabold text-[#401298]">Powervet</span>
       </h1>
 
       {/* Desktop headline */}
@@ -117,7 +117,7 @@ function HeroHeadline() {
       >
         <span className="font-semibold">Level-up your vet clinic, </span>
         <span className="font-semibold">save time with </span>
-        <span className="font-extrabold text-[#401298]">VetAI</span>
+        <span className="font-extrabold text-[#401298]">Powervet</span>
       </h1>
     </div>
   );
@@ -287,7 +287,7 @@ export const Hero = () => {
       />
 
       {/* Main content — mobile: stacked rows, desktop: two columns */}
-      <div className="relative mx-auto grid w-full max-w-6xl grid-rows-[auto_1fr] px-4 pt-24 md:pt-28 pb-4 lg:min-h-svh lg:grid-rows-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-center lg:gap-x-10 lg:px-8 lg:pt-6 lg:pb-6">
+      <div className="relative mx-auto grid w-full max-w-6xl grid-rows-[auto_1fr] px-4 pt-[60px] md:pt-28 pb-4 lg:min-h-svh lg:grid-rows-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-center lg:gap-x-10 lg:px-8 lg:pt-6 lg:pb-6">
         {/* Mobile row 1 / Desktop col 1: headlines */}
         <div className="flex flex-col items-center justify-center gap-4 pt-4 pb-0 lg:items-start lg:gap-6 lg:py-0">
           <HeroCopy />
@@ -302,8 +302,8 @@ export const Hero = () => {
             <div className="z-0 translate-y-1/4 self-start [grid-area:stack] opacity-30 lg:self-start">
               <MacWindows className="w-full min-h-[14rem] lg:min-h-[20rem]">
                 <img
-                  src={VetAIUiUrl}
-                  alt="VetAI Cloud interface"
+                  src={PowervetUiUrl}
+                  alt="Powervet Cloud interface"
                   className="size-full rounded object-cover object-left-top"
                 />
               </MacWindows>
@@ -311,7 +311,7 @@ export const Hero = () => {
 
             {/* Hero animation (in front) */}
             <HeroAnimation
-              aria-label="VetAI hero illustration"
+              aria-label="Powervet hero illustration"
               className="z-10 h-auto w-full max-w-[85%] self-end justify-self-center [grid-area:stack] lg:max-w-lg"
               onActiveAnimalChange={setActiveAnimal}
             />

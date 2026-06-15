@@ -216,7 +216,7 @@ function prepareAnimal(
   gsap.set(paths, { drawSVG: "0%" });
 }
 
-/** Layer and group names from VetAI-hero-animation.svg */
+/** Layer and group names from powervet-hero-animation.svg */
 export const HERO_ANIMATION_LAYERS = [
   "2231",
   "cat-1",

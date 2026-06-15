@@ -22,13 +22,10 @@ export function BannerSection() {
             "linear-gradient(to right, rgba(53,89,199,0.25), rgba(64,18,152,0.6) 50%, rgba(53,89,199,0.25))",
         }}
       >
-        {/* Two copies so the loop is seamless: animate 0 → -50% over 20s */}
+        {/* Two copies so the loop is seamless: animate 0 → -50% */}
         <div
-          className="banner-track"
+          className="banner-track flex h-full w-[200%]"
           style={{
-            display: "flex",
-            width: "max-content",
-            height: "100%",
             animation: "banner-marquee 60s linear infinite",
             willChange: "transform",
           }}
@@ -36,7 +33,7 @@ export function BannerSection() {
           {[0, 1].map((copy) => (
             <div
               key={copy}
-              style={{ position: "relative", width: "100vw", height: "100%", flexShrink: 0 }}
+              className="relative h-full w-1/2 shrink-0"
             >
               <img
                 src={imgImage2}

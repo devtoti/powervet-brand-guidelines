@@ -19,11 +19,11 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <div
-        className="min-h-screen"
+        className="min-h-screen w-full max-w-[100vw] overflow-x-hidden"
         style={{ fontFamily: "var(--font-raleway)" }}
       >
         <Navbar />
-        <main>
+        <main className="w-full max-w-[100vw] overflow-x-hidden">
           <Hero />
           <BannerSection />
           <LogosSection />

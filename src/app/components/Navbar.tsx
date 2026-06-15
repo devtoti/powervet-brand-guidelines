@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 import svgPaths from "../../imports/IconContainer/svg-9kqwkiafdn";
 import {
@@ -46,6 +46,35 @@ const GET_QUOTE_BUTTON_STYLE = {
   // border: "2px solid var(--brand-light)",
   boxShadow: "0 2px 8px rgba(53,89,199,0.25)",
 } as const;
+
+const NAVBAR_GLASS_SHADOW = "0px 4px 4px 0px rgba(0,0,0,0.12)";
+
+const NAVBAR_GLASS_SURFACE_STYLE = {
+  backdropFilter: "blur(5.1px)",
+  WebkitBackdropFilter: "blur(5.1px)",
+  background: "rgba(255,255,255,0.85)",
+} as const;
+
+function NavbarGlassPanel({
+  className,
+  roundedClass,
+  children,
+}: {
+  className: string;
+  roundedClass: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className={className} style={{ boxShadow: NAVBAR_GLASS_SHADOW }}>
+      <div
+        className={`relative overflow-hidden ${roundedClass}`}
+        style={NAVBAR_GLASS_SURFACE_STYLE}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
 
 function goToQuote() {
   window.location.href = "https://devtoti.com/contact";
@@ -120,24 +149,18 @@ export function Navbar() {
     <>
       {/* Floating pill */}
       <div
-        className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none w-full"
+        className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none w-full max-w-full px-2"
         style={{
           transform: mobileVisible ? "translateY(0)" : "translateY(-160%)",
           transition: "transform 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
       >
         {/* md:transform-none keeps desktop always visible */}
-        <div
-          className="pointer-events-auto relative overflow-visible rounded-[38px] w-full lg:mx-0 lg:w-full md:![transform:none] max-w-[880px] mx-2"
-          style={{
-            backdropFilter: "blur(5.1px)",
-            WebkitBackdropFilter: "blur(5.1px)",
-            background: "rgba(255,255,255,0.85)",
-            boxShadow: "0px 4px 4px 0px rgba(0,0,0,0.12)",
-          }}
+        <NavbarGlassPanel
+          className="pointer-events-auto w-full max-w-[880px] rounded-[38px] md:![transform:none]"
+          roundedClass="rounded-[38px]"
         >
-          <BlueprintDecoLines color={"#9c9c9c"} />
-          <div className="relative z-10 flex items-center justify-between px-3 py-1 gap-1 overflow-hidden">
+          <div className="relative z-10 flex items-center justify-between px-3 py-1 gap-1">
             <Logo onClick={() => scrollTo("logos")} />
 
             <GetQuoteButton
@@ -197,7 +220,7 @@ export function Navbar() {
             className="absolute inset-0 pointer-events-none w-full rounded-[38px]"
             style={{ borderTop: "1px solid rgba(255,255,255,0.3)" }}
           />
-        </div>
+        </NavbarGlassPanel>
       </div>
 
       {/* Mobile backdrop */}
@@ -210,22 +233,19 @@ export function Navbar() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="fixed top-[80px] left-0 right-0 z-40 flex justify-center px-4 pointer-events-none">
-          <div
-            className="pointer-events-auto relative overflow-visible w-full rounded-2xl"
-            style={{
-              background: "rgba(255,255,255,0.85)",
-              backdropFilter: "blur(5.1px)",
-              WebkitBackdropFilter: "blur(5.1px)",
-              boxShadow: "0px 4px 4px 0px rgba(0,0,0,0.12)",
-              border: "1px solid rgba(255,255,255,0.3)",
-            }}
+        <div className="fixed top-[80px] left-0 right-0 z-40 flex justify-center px-4 pointer-events-none max-w-full">
+          <NavbarGlassPanel
+            className="pointer-events-auto w-full max-w-[880px] rounded-2xl"
+            roundedClass="rounded-2xl"
           >
             <BlueprintDecoLines
               dashed
               color={BLUEPRINT_DECO_LINES_NAVBAR_COLOR}
             />
-            <div className="relative z-10 floating-menu w-full px-4 py-3 flex flex-col gap-0.5 overflow-hidden rounded-2xl">
+            <div
+              className="relative z-10 floating-menu w-full px-4 py-3 flex flex-col gap-0.5 rounded-2xl"
+              style={{ border: "1px solid rgba(255,255,255,0.3)" }}
+            >
               {NAV_ITEMS.map((item) => (
                 <button
                   key={item.id}
@@ -259,7 +279,7 @@ export function Navbar() {
                 />
               </div>
             </div>
-          </div>
+          </NavbarGlassPanel>
         </div>
       )}
     </>
